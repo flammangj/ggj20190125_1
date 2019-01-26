@@ -20,12 +20,9 @@ func _ready():
 	$RoomDetectionArea.connect("body_entered", self, "_on_Area_body_entered")
 	$RoomDetectionArea.connect("body_exited", self, "_on_Area_body_exited")
 	var overlapped_bodies = $RoomDetectionArea.get_overlapping_bodies()
-	print("overlapped_bodies", overlapped_bodies)
 	for body in overlapped_bodies:
 		if body.is_in_group("player"):
 			active = true
-		
-	print("room ready?")
 	
 func _physics_process(delta):
 	if translating:

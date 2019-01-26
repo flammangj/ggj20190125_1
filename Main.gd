@@ -7,7 +7,6 @@ func _ready():
 	game_running = true
 	$AmbienteMusic.play()
 	turn_scene(false)
-	print("main ready?")
 	pass # Replace with function body.
 
 func _input(event):
@@ -24,6 +23,6 @@ func _input(event):
 		OS.window_fullscreen = not OS.window_fullscreen
 	
 func turn_scene(direction):
-	$Player.switch_perspective(direction)
+	$House/Player.switch_perspective(direction)
 	$House.turn_scene(direction)
 	

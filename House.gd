@@ -30,7 +30,6 @@ func get_active_room():
 
 func get_active_room_row(direction):
 	var active = get_active_room()
-	print("active", active)
 	if not active:
 		return null
 	var pos = 'z'
@@ -40,21 +39,14 @@ func get_active_room_row(direction):
 	
 	
 	var rooms = []
-	print("pos", pos)
 	for room in get_rooms():
-		print("poses", room.matrixPos, activePos)
 		if room.matrixPos[pos] == activePos[pos]:
-			print("true")
 			rooms.append(room)
-		else:
-			print("false")
 	return rooms
-	print("rooms", rooms)
 	
 
 func turn_scene(direction):
 	var row = get_active_room_row(direction)
-	print("row", row)
 	if not row:
 		return
 	for room in get_rooms():

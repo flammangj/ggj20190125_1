@@ -9,6 +9,11 @@ var rotation_speed = 1000
 var target_rotation = Vector3()
 var rotating = false
 var current_room = null
+var ducked = false
+var scaled_down = false
+var scaled_up = true
+
+var value = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +38,26 @@ func _physics_process(delta):
 		if (perspective and rotation >= target_rotation) or (not perspective and rotation <= target_rotation):
 			rotation = target_rotation
 			rotating = false
+		
+		var transf = get_transform()	
+		var rot = rotation.linear_interpolate(target_rotation, value)
+		value += delta
+		transf.origin += rot
+		set_transform(transf)
+		
 	#	rotation = target_rotation * delta	
+	if ducked:
+		if not scaled_down:
+			scaled_down = true
+			scaled_up = false
+			global_scale(Vector3(1,0.5,1))
+			
+	else:
+		if not scaled_up:
+			scaled_up = true
+			scaled_down = false
+			global_scale(Vector3(1, 2, 1))
+			
 	
 
 
@@ -45,6 +69,10 @@ func process_user_movement():
 		axis = 'z'
 		direction_modifier = -1
 	
+	if Input.is_action_pressed("duck"):
+		ducked = true
+	else:
+		ducked = false
 	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
 		velocity[axis] += 1 * direction_modifier
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
@@ -53,8 +81,20 @@ func process_user_movement():
 		pass
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		pass
-		
+	
+	setAnimationDirection(velocity)
 	return velocity
+	
+func setAnimationDirection(velocity):
+	if ducked:
+		$Sprite3D.texture = load("res://kid2.png")
+	else:
+		$Sprite3D.texture = load("res://kid1.png")
+
+	if velocity.x == 0 && velocity.z == 0:
+		pass
+	else:
+		$Sprite3D.flip_h = velocity.x > 0
 	
 func set_rotation_target():
 	if perspective:
