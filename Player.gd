@@ -1,9 +1,14 @@
-extends RigidBody
+extends KinematicBody
 
 var velocity
-export (int) var SPEED = 40
+export (float) var SPEED = 0.4
 
 export (bool) var perspective = false
+
+var rotation_speed = 1000
+var target_rotation = Vector3()
+var rotating = false
+var current_room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,8 +19,18 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	velocity = process_user_movement()
-	add_central_force(velocity*SPEED)
+	velocity = process_user_movement()*SPEED
+	velocity = move_and_slide_with_snap(velocity, Vector3(0, -1, 0), Vector3(0, 1, 0))
+
+	
+func _physics_process(delta):
+	if rotating:
+		rotation += target_rotation / (rotation_speed * delta)
+		if (perspective and rotation >= target_rotation) or (not perspective and rotation <= target_rotation):
+			rotation = target_rotation
+			rotating = false
+	#	rotation = target_rotation * delta	
+	
 
 
 func process_user_movement():
@@ -27,7 +42,7 @@ func process_user_movement():
 		direction_modifier = -1
 	
 	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-			velocity[axis] += 1 * direction_modifier
+		velocity[axis] += 1 * direction_modifier
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
 		velocity[axis] -= 1 * direction_modifier
 	if Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
@@ -37,13 +52,28 @@ func process_user_movement():
 		
 	return velocity
 	
+func set_rotation_target():
+	if perspective:
+		var rot = Vector3(0, deg2rad(90), 0)
+#		rotate_y(deg2rad(90))
+#		target_rotation = rot
+		rotation = rot
+	else:
+		var rot = Vector3(0, deg2rad(0), 0)
+#		rotate_y(deg2rad(-90))
+#		target_rotation = rot
+		rotation = rot
+	rotating = false
+		
 func switch_perspective(direction: bool):
 	if perspective == direction:
 		return
+	#put character to room center
+	if current_room:
+		global_transform = (current_room.global_transform)
+#		translate(Vector3(0,0.1,0))
 	perspective = direction
-	if perspective:
-		rotate_y(deg2rad(90))
-	else:
-		rotate_y(deg2rad(-90))
+	set_rotation_target()
+	
 
 	
