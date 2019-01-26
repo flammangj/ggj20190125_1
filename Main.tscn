@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://House.gd" type="Script" id=2]
@@ -7,26 +7,29 @@
 [ext_resource path="res://rooms/Room120.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/Room220.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/Room021.tscn" type="PackedScene" id=7]
-[ext_resource path="res://rooms/Room121.tscn" type="PackedScene" id=8]
-[ext_resource path="res://rooms/Room221.tscn" type="PackedScene" id=9]
-[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=10]
-[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=11]
-[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/Door.tscn" type="PackedScene" id=13]
-[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=14]
-[ext_resource path="res://assets/Airwent_test.tscn" type="PackedScene" id=15]
-[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=16]
-[ext_resource path="res://rooms/room_models/Room_1D.dae" type="PackedScene" id=17]
-[ext_resource path="res://rooms/room_models/Room_1D_ex_B.dae" type="PackedScene" id=18]
-[ext_resource path="res://rooms/room_models/Room_1D_ex_L.dae" type="PackedScene" id=19]
-[ext_resource path="res://rooms/room_models/Room_1D_ex_R.dae" type="PackedScene" id=20]
-[ext_resource path="res://rooms/room_models/Room_1D_SL.dae" type="PackedScene" id=21]
-[ext_resource path="res://rooms/room_models/Room_1D_SR.dae" type="PackedScene" id=22]
-[ext_resource path="res://rooms/room_models/Room_2D_LR.dae" type="PackedScene" id=23]
-[ext_resource path="res://rooms/room_models/Room_2D_LU.dae" type="PackedScene" id=24]
-[ext_resource path="res://rooms/room_models/Room_2D_RU.dae" type="PackedScene" id=25]
-[ext_resource path="res://rooms/room_models/Room_ex2.dae" type="PackedScene" id=26]
-[ext_resource path="res://rooms/room_models/Room_ex.dae" type="PackedScene" id=27]
+[ext_resource path="res://S.png" type="Texture" id=8]
+[ext_resource path="res://family.png" type="Texture" id=9]
+[ext_resource path="res://rooms/Room121.tscn" type="PackedScene" id=10]
+[ext_resource path="res://rooms/Room221.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Q.png" type="Texture" id=12]
+[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=13]
+[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=14]
+[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/Door.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/Airwent_test.tscn" type="PackedScene" id=18]
+[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=19]
+[ext_resource path="res://rooms/room_models/Room_1D.dae" type="PackedScene" id=20]
+[ext_resource path="res://rooms/room_models/Room_1D_ex_B.dae" type="PackedScene" id=21]
+[ext_resource path="res://rooms/room_models/Room_1D_ex_L.dae" type="PackedScene" id=22]
+[ext_resource path="res://rooms/room_models/Room_1D_ex_R.dae" type="PackedScene" id=23]
+[ext_resource path="res://rooms/room_models/Room_1D_SL.dae" type="PackedScene" id=24]
+[ext_resource path="res://rooms/room_models/Room_1D_SR.dae" type="PackedScene" id=25]
+[ext_resource path="res://rooms/room_models/Room_2D_LR.dae" type="PackedScene" id=26]
+[ext_resource path="res://rooms/room_models/Room_2D_LU.dae" type="PackedScene" id=27]
+[ext_resource path="res://rooms/room_models/Room_2D_RU.dae" type="PackedScene" id=28]
+[ext_resource path="res://rooms/room_models/Room_ex2.dae" type="PackedScene" id=29]
+[ext_resource path="res://rooms/room_models/Room_ex.dae" type="PackedScene" id=30]
 
 [sub_resource type="PlaneShape" id=1]
 
@@ -39,6 +42,7 @@ script = ExtResource( 2 )
 
 [node name="Player" parent="House" instance=ExtResource( 3 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.464, 0, 0.023 )
+SPEED = 0.004
 
 [node name="Room020" parent="House" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.45 )
@@ -57,31 +61,43 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0 )
 matrixPos = Vector3( 0, 2, 1 )
 active = true
 
-[node name="Room121" parent="House" instance=ExtResource( 8 )]
+[node name="Sprite3D" type="Sprite3D" parent="House/Room021"]
+transform = Transform( -4.37114e-009, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-009, -0.239063, 0.0615067, -0.198896 )
+texture = ExtResource( 8 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="House/Room021"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.118064, 0.170421, -0.221388 )
+texture = ExtResource( 9 )
+
+[node name="Room121" parent="House" instance=ExtResource( 10 )]
 matrixPos = Vector3( 1, 2, 1 )
 
-[node name="Room221" parent="House" instance=ExtResource( 9 )]
+[node name="Room221" parent="House" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0 )
 matrixPos = Vector3( 2, 2, 1 )
 
-[node name="Room022" parent="House" instance=ExtResource( 10 )]
+[node name="Sprite3D" type="Sprite3D" parent="House/Room221"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.138663, 0.144515, -0.225909 )
+texture = ExtResource( 12 )
+
+[node name="Room022" parent="House" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
 matrixPos = Vector3( 0, 2, 2 )
 
-[node name="Room122" parent="House" instance=ExtResource( 11 )]
+[node name="Room122" parent="House" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45 )
 matrixPos = Vector3( 1, 2, 2 )
 
-[node name="Room222" parent="House" instance=ExtResource( 12 )]
+[node name="Room222" parent="House" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.45 )
 matrixPos = Vector3( 2, 2, 2 )
 
 [node name="Door" parent="House/Room222" groups=[
 "doors",
-] instance=ExtResource( 13 )]
+] instance=ExtResource( 16 )]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="House"]
-stream = ExtResource( 14 )
+stream = ExtResource( 17 )
 bus = "Dampened"
 
 [node name="Floor" type="StaticBody" parent="House"]
@@ -93,49 +109,45 @@ shape = SubResource( 1 )
 
 [node name="Music" type="Spatial" parent="House"]
 
-[node name="Airwent" parent="House" instance=ExtResource( 15 )]
+[node name="Airwent" parent="House" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463072, 0, -0.448724 )
 
 [node name="AmbienteMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 19 )
 
 [node name="testnode" type="Spatial" parent="."]
 visible = false
 
-[node name="Scene Root" parent="testnode" instance=ExtResource( 17 )]
+[node name="Scene Root" parent="testnode" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12169, 0, 0 )
 
-[node name="Scene Root2" parent="testnode" instance=ExtResource( 18 )]
+[node name="Scene Root2" parent="testnode" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22129, 0, 0 )
 
-[node name="Scene Root3" parent="testnode" instance=ExtResource( 19 )]
+[node name="Scene Root3" parent="testnode" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.66338 )
 
-[node name="Scene Root4" parent="testnode" instance=ExtResource( 20 )]
+[node name="Scene Root4" parent="testnode" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.691957 )
 
-[node name="Scene Root5" parent="testnode" instance=ExtResource( 21 )]
+[node name="Scene Root5" parent="testnode" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18729, 2.38419e-007, 1.03946 )
 
-[node name="Scene Root6" parent="testnode" instance=ExtResource( 22 )]
+[node name="Scene Root6" parent="testnode" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21545, 0, 0.935454 )
 
-[node name="Scene Root7" parent="testnode" instance=ExtResource( 23 )]
+[node name="Scene Root7" parent="testnode" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03512, 0, -0.762847 )
 
-[node name="Scene Root8" parent="testnode" instance=ExtResource( 24 )]
+[node name="Scene Root8" parent="testnode" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00072, 0, -0.670511 )
 
-[node name="Scene Root9" parent="testnode" instance=ExtResource( 25 )]
+[node name="Scene Root9" parent="testnode" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27453, 0, 0.488815 )
 
-[node name="Scene Root10" parent="testnode" instance=ExtResource( 26 )]
+[node name="Scene Root10" parent="testnode" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.726705, -2.38419e-007, 1.41969 )
 
-[node name="Scene Root11" parent="testnode" instance=ExtResource( 27 )]
+[node name="Scene Root11" parent="testnode" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663883, 0, 1.69494 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-bus = "Dampened"
 

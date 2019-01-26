@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://kid1.png" type="Texture" id=2]
+[ext_resource path="res://sound/sfx_footstep_child.ogg" type="AudioStream" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -26,7 +27,7 @@ transform = Transform( 0.176897, 0, 0, 0, 0.234479, 0, 0, 0, 0.0163786, 0, 0.084
 shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0920237, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.075237, 0 )
 texture = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -43,3 +44,17 @@ light_specular = 1.0
 shadow_enabled = true
 omni_range = 0.6
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_db = 6.214
+max_db = 4.456
+
+[node name="Listener" type="Listener" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421143, 0.0461021, 0.105042 )
+current = true
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Dampened"
+
+[connection signal="finished" from="Footsteps" to="." method="_on_Footsteps_finished"]
