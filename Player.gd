@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var velocity
-export (float) var SPEED = 0.4
+export (float) var SPEED = 0.01
 
 export (bool) var perspective = false
 
@@ -20,10 +20,14 @@ func _ready():
 #	pass
 func _process(delta):
 	velocity = process_user_movement()*SPEED
-	velocity = move_and_slide_with_snap(velocity, Vector3(0, -1, 0), Vector3(0, 1, 0))
+#	velocity = move_and_slide_with_snap(velocity, Vector3(0, -1, 0), Vector3(0, 1, 0))
+	velocity = move_and_collide(velocity)
 
 	
 func _physics_process(delta):
+	var flattener = Vector3(1,0,1)
+	transform.origin = transform.origin * flattener
+	
 	if rotating:
 		rotation += target_rotation / (rotation_speed * delta)
 		if (perspective and rotation >= target_rotation) or (not perspective and rotation <= target_rotation):

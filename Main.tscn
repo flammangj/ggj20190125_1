@@ -35,7 +35,7 @@
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.463669, -0.000910636, 0.0233395 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.464, 0, 0.023 )
 
 [node name="House" type="Spatial" parent="."]
 script = ExtResource( 3 )
@@ -88,6 +88,7 @@ stream = ExtResource( 15 )
 bus = "Dampened"
 
 [node name="Floor" type="StaticBody" parent="House"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="House/Floor"]
 shape = SubResource( 1 )
