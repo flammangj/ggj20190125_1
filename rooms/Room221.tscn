@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://rooms/room_models/Room_ex2.dae" type="PackedScene" id=2]
@@ -7,11 +7,15 @@
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
-[sub_resource type="PlaneShape" id=2]
+[sub_resource type="BoxShape" id=5]
 
 
-[sub_resource type="PlaneShape" id=6]
+[sub_resource type="BoxShape" id=6]
 
+
+[sub_resource type="BoxShape" id=4]
+
+extents = Vector3( 1, 0.00587065, 1 )
 
 [node name="Room" type="Spatial" groups=[
 "rooms",
@@ -35,16 +39,23 @@ omni_range = 0.1
 transform = Transform( 1.04993, 0, 0, 0, 1.01374, 0, 0, 0, 1, 0, 0.222, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.0220014, 0, 0, 0, 1, 0, 0, 0, 0.0231276, 0, -0.216382, 0 )
-shape = SubResource( 2 )
+transform = Transform( 0.25, 0, 0, 0, 0.004, 0, 0, 0, 0.25, 0, -0.221403, 0 )
+shape = SubResource( 5 )
+disabled = true
 
-[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
-transform = Transform( -1.09278e-009, 0.965531, 0, -0.0223014, -3.7649e-008, 0, 0, 0, 0.0231612, 0.213696, 0, 0 )
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( -0.00176878, 0, 0, 0, 1.01374, 0, 0, 0, 1, 0.193082, 0.222, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( -1.09278e-008, -0.966, 0, 0.25, -4.22252e-008, 0, 0, 0, 0.25, 0, 0, 0 )
 shape = SubResource( 6 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 4.77672e-017, -4.22047e-008, -0.0220598, -0.0223014, -3.76491e-008, 0, -1.14735e-009, 1.01374, -1.01241e-009, -0.000684995, 0, -0.228759 )
-shape = SubResource( 6 )
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( -4.58939e-008, 0, -1, 0, 1.01374, 0, 1.04993, 0, -4.37114e-008, -0.00875634, 0.222, -0.194929 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+transform = Transform( -1.09278e-008, -0.966, 0, 0.25, -4.22252e-008, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 4 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 0, 0 )

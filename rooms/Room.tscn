@@ -2,7 +2,7 @@
 
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
@@ -17,7 +17,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RoomDetectionArea"]
 transform = Transform( 0.743192, 0, 0, 0, 1.31216, 0, 0, 0, 1.38706, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="RoomActiveLight" type="OmniLight" parent="."]
 visible = false
@@ -25,9 +25,9 @@ light_color = Color( 0, 1, 0, 1 )
 omni_range = 0.1
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1.04993, 0, 0, 0, 1.01374, 0, 0, 0, 1, 0, 0.222, 0 )
+transform = Transform( 1.05, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.0220014, 0, 0, 0, 1, 0, 0, 0, 0.0231276, 0, -0.216382, 0 )
+transform = Transform( -0.0238085, 0, 0, 0, 0, 0, 0, 0, -0.0224002, 0, 0, 0 )
 shape = SubResource( 2 )
 
