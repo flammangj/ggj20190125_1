@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://rooms/room_models/Room_2D_LU.dae" type="PackedScene" id=2]
@@ -7,7 +7,10 @@
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
-[sub_resource type="PlaneShape" id=2]
+[sub_resource type="BoxShape" id=4]
+
+
+[sub_resource type="BoxShape" id=3]
 
 
 [node name="Room" type="Spatial" groups=[
@@ -29,11 +32,19 @@ light_color = Color( 0, 1, 0, 1 )
 omni_range = 0.1
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1.04993, 0, 0, 0, 1.01374, 0, 0, 0, 1, 0, 0.222, 0 )
+transform = Transform( 1.04993, 0, 0, 0, 0.00487389, 0, 0, 0, 1, 0, 0.00154479, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.0220014, 0, 0, 0, 1, 0, 0, 0, 0.0231276, 0, -0.216382, 0 )
-shape = SubResource( 2 )
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 2.00609e-015, -4.4312e-008, -1, -1.04993, -4.4312e-008, 0, 2.23544e-011, -0.000493782, 2.12913e-011, 0, 0.222, -0.20053 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 3 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 0, 0 )
