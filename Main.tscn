@@ -49,6 +49,7 @@ script = ExtResource( 2 )
 
 [node name="Player" parent="House" instance=ExtResource( 3 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.464, 0, 0.023 )
+SPEED = 0.004
 
 [node name="Room020" parent="House" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.45 )
@@ -94,8 +95,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269191, 0, -0.060794 )
 [node name="Chest" parent="House/Room021" instance=ExtResource( 13 )]
 transform = Transform( 0.650381, 0, 0, 0, 0.5, 0, 0, 0, 0.649542, -0.061402, 0.0026655, 0.0668042 )
 
+[node name="Sprite3D" type="Sprite3D" parent="House/Room021"]
+transform = Transform( -4.37114e-009, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-009, -0.239063, 0.0615067, -0.198896 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="House/Room021"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.118064, 0.170421, -0.221388 )
+
 [node name="Room121" parent="House" instance=ExtResource( 14 )]
-matrixPos = Vector3( 1, 2, 1 )
 
 [node name="Light" parent="House/Room121" instance=ExtResource( 15 )]
 
@@ -105,13 +111,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.0158
 [node name="Door2" parent="House/Room121" instance=ExtResource( 16 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0.0266218, 0.00513497, -0.24292 )
 
+[node name="Room121" parent="House" instance=ExtResource( 14 )]
+matrixPos = Vector3( 1, 2, 1 )
+
 [node name="Room221" parent="House" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.450477, -0.00233606, 0.00029096 )
+
+[node name="Sprite3D" type="Sprite3D" parent="House/Room221"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.138663, 0.144515, -0.225909 )
+
+[node name="Room221" parent="House" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0 )
 matrixPos = Vector3( 2, 2, 1 )
 
 [node name="Room022" parent="House" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
-matrixPos = Vector3( 0, 2, 2 )
 
 [node name="Table" parent="House/Room022" instance=ExtResource( 8 )]
 transform = Transform( 0.404086, 0, 0, 0, 0.509621, 0, 0, 0, 0.407663, -0.00921896, 0, 0.0452151 )
@@ -119,24 +132,36 @@ transform = Transform( 0.404086, 0, 0, 0, 0.509621, 0, 0, 0, 0.407663, -0.009218
 [node name="Chair" parent="House/Room022" instance=ExtResource( 19 )]
 transform = Transform( -7.64949e-008, 0, 1.75, 0, 1.73957, 0, -1.75, 0, -7.64949e-008, -0.108888, 0.0194757, 0.0645703 )
 
+[node name="Room022" parent="House" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
+matrixPos = Vector3( 0, 2, 2 )
+
 [node name="Room122" parent="House" instance=ExtResource( 20 )]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45 )
-matrixPos = Vector3( 1, 2, 2 )
 
 [node name="Door" parent="House/Room122" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.021749 )
 
+[node name="Room122" parent="House" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45 )
+matrixPos = Vector3( 1, 2, 2 )
+
 [node name="Room222" parent="House" instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.45 )
-matrixPos = Vector3( 2, 2, 2 )
 
 [node name="Door_stair" parent="House/Room222" instance=ExtResource( 22 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.000922978, 0, 0.287056 )
 
+[node name="Door" parent="House/Room222" groups=[
+"doors",
+] instance=ExtResource( 16 )]
+
 [node name="Sprite3D" type="Sprite3D" parent="House/Room222"]
 transform = Transform( -0.01, 0, -8.74228e-010, 0, 0.01, 0, 8.74228e-010, 0, -0.01, -0.00121903, 0.196385, -0.244674 )
 texture = ExtResource( 23 )
+
+[node name="Room222" parent="House" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.45 )
+matrixPos = Vector3( 2, 2, 2 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="House"]
 stream = ExtResource( 24 )
@@ -153,6 +178,9 @@ shape = SubResource( 1 )
 
 [node name="Kitchen" parent="House" instance=ExtResource( 25 )]
 visible = false
+
+[node name="Airwent" parent="House" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463072, 0, -0.448724 )
 
 [node name="AmbienteMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )

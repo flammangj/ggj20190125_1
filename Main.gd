@@ -5,7 +5,7 @@ var game_running = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_running = true
-	$AmbienteMusic.play()
+#	$AmbienteMusic.play()
 	turn_scene(false)
 	pass # Replace with function body.
 

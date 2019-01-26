@@ -14,6 +14,7 @@ var scaled_down = false
 var scaled_up = true
 
 var value = 0
+var foot_sfx_playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,8 +76,12 @@ func process_user_movement():
 		ducked = false
 	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
 		velocity[axis] += 1 * direction_modifier
+
+		play_footsteps()
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
 		velocity[axis] -= 1 * direction_modifier
+		play_footsteps()
+	
 	if Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
 		pass
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
@@ -85,6 +90,13 @@ func process_user_movement():
 	setAnimationDirection(velocity)
 	return velocity
 	
+func play_footsteps():
+	if not foot_sfx_playing:
+		var pitch = rand_range(0.9, 1)
+		$Footsteps.pitch_scale = pitch
+		$Footsteps.play()
+		foot_sfx_playing = true
+		
 func setAnimationDirection(velocity):
 	if ducked:
 		$Sprite3D.texture = load("res://kid2.png")
@@ -121,3 +133,6 @@ func switch_perspective(direction: bool):
 	
 
 	
+
+func _on_Footsteps_finished():
+	foot_sfx_playing = false
