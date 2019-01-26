@@ -20,14 +20,16 @@ func _process(delta):
 
 func process_user_movement():
 	var velocity = Vector3()
+	var direction_modifier = 1
 	var axis = 'x'
 	if perspective:
 		axis = 'z'
+		direction_modifier = -1
 	
 	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-			velocity[axis] += 1
+			velocity[axis] += 1 * direction_modifier
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
-		velocity[axis] -= 1
+		velocity[axis] -= 1 * direction_modifier
 	if Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
 		pass
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
@@ -40,6 +42,8 @@ func switch_perspective(direction: bool):
 		return
 	perspective = direction
 	if perspective:
+		rotate_y(deg2rad(90))
+	else:
 		rotate_y(deg2rad(-90))
 
 	
