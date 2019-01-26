@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://rooms/room_models/Room_1D_SL.dae" type="PackedScene" id=2]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
-[sub_resource type="PlaneShape" id=2]
+[sub_resource type="PlaneShape" id=5]
+
+
+[sub_resource type="PlaneShape" id=6]
 
 
 [node name="Room" type="Spatial" groups=[
@@ -20,7 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RoomDetectionArea"]
 transform = Transform( 0.743192, 0, 0, 0, 1.31216, 0, 0, 0, 1.38706, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="RoomActiveLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130204, 0.376077, 0 )
@@ -33,7 +36,19 @@ transform = Transform( 1.04993, 0, 0, 0, 1.01374, 0, 0, 0, 1, 0, 0.222, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.0220014, 0, 0, 0, 1, 0, 0, 0, 0.0231276, 0, -0.216382, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.09278e-009, 0.965531, 0, -0.0223014, -3.7649e-008, 0, 0, 0, 0.0231612, -0.218698, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 4.77672e-017, -4.22047e-008, -0.0220598, -0.0165366, -2.79169e-008, 0, -1.14735e-009, 1.01374, -1.01241e-009, 0.00375307, 0.0280528, 0.221977 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 4.77672e-017, -4.22047e-008, -0.0220598, -0.0223014, -3.76491e-008, 0, -1.14735e-009, 1.01374, -1.01241e-009, 0.00375307, 0, -0.23008 )
+shape = SubResource( 6 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 2 )]
 

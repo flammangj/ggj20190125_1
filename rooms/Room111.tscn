@@ -3,7 +3,7 @@
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://rooms/room_models/Room_1D_SL.dae" type="PackedScene" id=2]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
@@ -20,7 +20,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RoomDetectionArea"]
 transform = Transform( 0.743192, 0, 0, 0, 1.31216, 0, 0, 0, 1.38706, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="RoomActiveLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130204, 0.376077, 0 )
