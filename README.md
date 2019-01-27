@@ -2,7 +2,7 @@ This is the correct branch.
 
 There is so much hidden work in the game that we added in the polish phase and some bugs that could have been smartly fixed. Which means there are still so many things unsaid.
 
-At this point I have a vague idea of how long my wife would have taken if I not unticked a checkbox in the project settings. There are many subtle game design decisions that could easily be overseen.
+At this point I have a vague idea of how long my wife would have taken if I not unticked a checkbox in the project settings. There are many subtle game design decisions that could easily be overseen. There was simply not enough time to do it all the right way.
 
 
 
