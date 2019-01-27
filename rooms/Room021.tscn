@@ -7,7 +7,7 @@
 
 extents = Vector3( 0.306864, 0.170013, 0.164647 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=2]
 
 
 [sub_resource type="BoxShape" id=3]
@@ -42,21 +42,21 @@ transform = Transform( 1.04993, 0, 0, 0, 0.0207379, 0, 0, 0, 1, 0, -0.00775956, 
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, -0.216382, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 transform = Transform( 2.73434e-010, 0.00603983, -1.49566e-008, 1.04993, -4.4312e-008, 0, -1.39723e-016, -3.08632e-009, -1, -0.211439, 0.222, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+transform = Transform( 0.25, 1.60467e-008, -9.93421e-015, 4.3032e-009, 1.38021, -2.35381e-007, -1.3281e-017, -1.17345e-009, 0.25, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="StaticBody3" type="StaticBody" parent="."]
 transform = Transform( 2.00609e-015, 4.4312e-008, -1, 1.04993, -4.4312e-008, 0, 5.30638e-011, 0.00117211, 5.05403e-011, -0.0157984, 0.222, 0.199953 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
-transform = Transform( 0.25, -5.04613e-015, 0, 1.26153e-015, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+transform = Transform( 0.25, 2.53261e-008, 2.7301e-016, 6.79169e-009, 1.60008, 6.4687e-009, 3.00954e-016, 2.65907e-008, 0.25, -2.98023e-007, -7.18127, -3.14787e-007 )
 shape = SubResource( 4 )
 
 [node name="StaticBody4" type="StaticBody" parent="."]
