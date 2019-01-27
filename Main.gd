@@ -48,13 +48,17 @@ func _on_Sequencer_sequence_done(step):
 		$House/dad.move_away()
 		$House/Room121/Door.close()
 		$House/Room121/Door.lock()
-		
 	if step == 6:
+		print("now it should leave")
 		get_tree().quit()
-
-		
 	pass # Replace with function body.
-	
+
+func force_lock_door():
+	$House/Room021/start_tunnel_block.queue_free()
+	$House/Room121/Door.close()
+	$House/Room121/Door.lock()
+
 func game_over():
+	print("close to game over")
 	$Sequencer.step = 5
 	proceed()

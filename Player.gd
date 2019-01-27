@@ -151,6 +151,7 @@ func open_door():
 		if object.get_parent().is_in_group("door_locked_stair"):
 			door_locked_once = true
 			if not has_key:
+				get_parent().get_parent().force_lock_door()
 				get_parent().get_parent().proceed()
 			pass
 
@@ -160,15 +161,21 @@ func open_door():
 				print("door locked")
 				if has_key:
 					print("we also have key")
+					$door_unlocked.play()
+					$door_open.play()
 					object.get_parent().open()
 					if obj.is_in_group("door_locked_stair"):
 						print("its the locked stair door")
 						print("GAME OVER (BUT YOU WON)")
 						### THIS IS THE END OF THE GAME
 						
+						
 						get_parent().get_parent().game_over()
+				else:
+					$door_locked.play()
 						
 			else:
+				$door_open.play()
 				object.get_parent().open()
 		
 		#KEY COLLECT

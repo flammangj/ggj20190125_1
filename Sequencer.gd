@@ -19,6 +19,7 @@ func hide():
 
 func proceed():
 	step += 1
+	print("starting step", step)
 	
 	if step == 1:
 		show()
@@ -35,12 +36,26 @@ func proceed():
 		$Control/Seq_1.hide()
 		$Control/Seq_2.hide()
 		$Control/Seq_3.show()
+		
+		#what the... are you doing
+		$Timer.wait_time = 1
+		$Timer.start()
+		yield($Timer, "timeout")
+		$whatThe.play()
 		hide_after_t(3)
 		
 	if step == 3:
 		show()
 		$Control/Seq_3.hide()
 		$Control/Seq_5.show()
+		
+		#back to your room
+		$backToRoom.play()
+		$Timer.wait_time = 2
+		$Timer.start()
+		yield($Timer, "timeout")
+		$doorclose.play()
+		
 		hide_after_t(3)
 	if step == 4:
 		$Control/Seq_5.hide()

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sfx_doorclosed.ogg-902887d6ad210930795ccd42c8435d1e.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
