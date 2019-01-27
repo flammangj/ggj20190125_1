@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2019-01-26T23:07:18Z</created><keywords></keywords><modified>2019-01-26T23:07:18Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_materials>
+    <material id="lambert11" name="lambert11">
+      <instance_effect url="#lambert11-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="lambert11-fx" name="lambert11">
+      <profile_COMMON>
+        <technique sid="standard">
+          <lambert>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.800000  0.800000 0.800000 1.000000</color>
+            </diffuse>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="pPlane7-lib" name="pPlane7Mesh">
+      <mesh>
+        <source id="pPlane7-POSITION">
+          <float_array id="pPlane7-POSITION-array" count="36">
+6.704769 22.336439 33.605042
+14.882147 22.336439 27.675798
+2.884936 22.336439 28.336882
+11.062313 22.336439 22.407637
+3.833158 22.336439 25.597782
+13.933924 22.336439 25.597782
+3.833158 22.336439 19.090508
+13.933924 22.336439 19.090508
+6.183979 22.336439 18.717024
+15.297913 22.336439 23.071526
+8.989305 22.336439 12.845501
+18.103239 22.336439 17.200003
+</float_array>
+          <technique_common>
+            <accessor source="#pPlane7-POSITION-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="pPlane7-Normal0">
+          <float_array id="pPlane7-Normal0-array" count="36">
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#pPlane7-Normal0-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="pPlane7-UV0">
+          <float_array id="pPlane7-UV0-array" count="24">
+0.000000 0.000000
+1.000000 0.000000
+0.000000 1.000000
+1.000000 1.000000
+0.000000 0.000000
+1.000000 0.000000
+1.000000 1.000000
+0.000000 1.000000
+0.000000 0.000000
+1.000000 0.000000
+1.000000 1.000000
+0.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#pPlane7-UV0-array" count="12" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="pPlane7-VERTEX">
+          <input semantic="POSITION" source="#pPlane7-POSITION"/>
+          <input semantic="NORMAL" source="#pPlane7-Normal0"/>
+        </vertices>
+        <triangles count="6" material="lambert11"><input semantic="VERTEX" offset="0" source="#pPlane7-VERTEX"/><input semantic="TEXCOORD" offset="1" set="0" source="#pPlane7-UV0"/><p> 0 0 3 3 2 2 3 3 0 0 1 1 5 5 7 6 4 4 4 4 7 6 6 7 10 11 9 9 11 10 9 9 10 11 8 8</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Papers_Please" name="Papers_Please">
+      <node name="pPlane7" id="pPlane7" sid="pPlane7"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#pPlane7-lib"><bind_material><technique_common><instance_material symbol="lambert11" target="#lambert11"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>24.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.041667</start_time><end_time>8.333333</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Papers_Please"></instance_visual_scene>
+  </scene>
+</COLLADA>
