@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://kid1.png" type="Texture" id=2]
@@ -17,6 +17,9 @@ fog_color = Color( 0.901961, 0.870588, 0.839216, 1 )
 fog_sun_color = Color( 0.239216, 0.223529, 0.219608, 1 )
 fog_sun_amount = 0.32
 
+[sub_resource type="BoxShape" id=3]
+
+
 [node name="Player" type="KinematicBody" groups=[
 "player",
 ]]
@@ -31,9 +34,10 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.075237, 0 )
 texture = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123983, 0.581486 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123983, 0.93137 )
 environment = SubResource( 2 )
 current = true
+fov = 50.0
 far = 500.0
 
 [node name="OmniLight" type="OmniLight" parent="."]
@@ -57,4 +61,12 @@ current = true
 stream = ExtResource( 3 )
 bus = "Dampened"
 
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 0.0971472, 0, 0, 0, 0.0574188, 0, 0, 0, 0.0255384, 0, 0.0788103, 0 )
+shape = SubResource( 3 )
+
 [connection signal="finished" from="Footsteps" to="." method="_on_Footsteps_finished"]
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]

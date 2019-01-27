@@ -49,7 +49,8 @@ func _on_Area_body_entered(body):
 		clear_all_rooms_active()
 		active = true
 		body.current_room = self
-		$RoomActiveLight.visible = true
+		# REENABLE TO DEBUG
+#		$RoomActiveLight.visible = true 
 	pass # Replace with function body.
 
 func clear_all_rooms_active():

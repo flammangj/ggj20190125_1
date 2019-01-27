@@ -16,6 +16,8 @@ var scaled_up = true
 var value = 0
 var foot_sfx_playing = false
 
+var close_objects = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Camera.current = true
@@ -87,6 +89,9 @@ func process_user_movement():
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		pass
 	
+	if Input.is_action_just_pressed("interact"):
+		open_door()
+	
 	setAnimationDirection(velocity)
 	return velocity
 	
@@ -132,7 +137,25 @@ func switch_perspective(direction: bool):
 	set_rotation_target()
 	
 
-	
-
 func _on_Footsteps_finished():
 	foot_sfx_playing = false
+
+func open_door():
+	for object in close_objects:
+		print("parent?", object.get_parent().name)
+		print("parent groups", object.get_parent().get_groups())
+		if object.get_parent().is_in_group("doors_interact"):
+			object.get_parent().open()
+	pass
+
+
+func _on_Area_area_entered(area):
+	close_objects.append(area)
+	pass # Replace with function body.
+
+
+func _on_Area_area_exited(area):
+	var pos = close_objects.find(area)
+	if pos >= 0:
+		close_objects.remove(pos)
+	pass # Replace with function body.

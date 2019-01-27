@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://rooms/room_models/Room_1D_SR.dae" type="PackedScene" id=2]
+[ext_resource path="res://assets/Light2.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -67,4 +68,14 @@ transform = Transform( 0.185794, 1.08391e-008, -1.58819e-022, 2.90671e-009, 1, -
 shape = SubResource( 5 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 2 )]
+
+[node name="Light2" parent="." instance=ExtResource( 3 )]
+
+[node name="OmniLight" type="OmniLight" parent="Light2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347479, 0 )
+light_color = Color( 0.815686, 0.764706, 0.67451, 1 )
+light_energy = 1.48
+light_indirect_energy = 0.03
+light_specular = 0.21
+omni_range = 0.5
 
