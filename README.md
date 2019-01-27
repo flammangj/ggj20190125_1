@@ -69,4 +69,6 @@ At this point I have a vague idea of how long my wife would have taken if I not 
 
 * Also, what I would like to tell my dear team members, and I left unspoken: if you want to do a second jam and try to exploit the "Video World" for an even better platformer puzzle game, I'm sure we could arrange something.
 
+REMEMBER: Let's make OUR Puppet House, but BETTER :)
+
 
