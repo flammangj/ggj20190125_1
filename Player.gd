@@ -140,12 +140,41 @@ func switch_perspective(direction: bool):
 func _on_Footsteps_finished():
 	foot_sfx_playing = false
 
+var has_key = false
+var door_locked_once = false
+
 func open_door():
 	for object in close_objects:
-		print("parent?", object.get_parent().name)
-		print("parent groups", object.get_parent().get_groups())
+		var obj = object.get_parent()
+		
+		#LAUNCH THE LOCKED DOOR SEQUENCE
+		if object.get_parent().is_in_group("door_locked_stair"):
+			door_locked_once = true
+			if not has_key:
+				get_parent().get_parent().proceed()
+			pass
+
+		#CHECK DOOR
 		if object.get_parent().is_in_group("doors_interact"):
-			object.get_parent().open()
+			if obj.is_in_group("door_locked"):
+				print("door locked")
+				if has_key:
+					print("we also have key")
+					object.get_parent().open()
+					if obj.is_in_group("door_locked_stair"):
+						print("its the locked stair door")
+						print("GAME OVER (BUT YOU WON)")
+						### THIS IS THE END OF THE GAME
+						
+						get_parent().get_parent().game_over()
+						
+			else:
+				object.get_parent().open()
+		
+		#KEY COLLECT
+		if object.get_parent().is_in_group("key"):
+			object.get_parent().pickup()
+			has_key = true
 	pass
 
 

@@ -1,33 +1,48 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://House.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://rooms/Room020.tscn" type="PackedScene" id=4]
-[ext_resource path="res://rooms/Room120.tscn" type="PackedScene" id=5]
-[ext_resource path="res://rooms/Room220.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Bed.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/Table.tscn" type="PackedScene" id=8]
-[ext_resource path="res://rooms/Room021.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/Wall_shelf.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/Airwent_test.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/Light2.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/Chest.tscn" type="PackedScene" id=13]
-[ext_resource path="res://S.png" type="Texture" id=14]
-[ext_resource path="res://family.png" type="Texture" id=15]
-[ext_resource path="res://F.png" type="Texture" id=16]
-[ext_resource path="res://rooms/Room121.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/Door.tscn" type="PackedScene" id=18]
-[ext_resource path="res://rooms/Room221.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Q.png" type="Texture" id=20]
-[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=21]
-[ext_resource path="res://assets/Chair.tscn" type="PackedScene" id=22]
-[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=23]
-[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=24]
-[ext_resource path="res://assets/Door_stair.tscn" type="PackedScene" id=25]
-[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=26]
-[ext_resource path="res://assets/Kitchen.tscn" type="PackedScene" id=27]
-[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=28]
+[ext_resource path="res://dad_f1.png" type="Texture" id=4]
+[ext_resource path="res://dad.gd" type="Script" id=5]
+[ext_resource path="res://rooms/Room020.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/Room120.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rooms/Room220.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Bed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Table.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Key.gd" type="Script" id=11]
+[ext_resource path="res://key.png" type="Texture" id=12]
+[ext_resource path="res://rooms/Room021.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/Wall_shelf.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/Airwent_test.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/Light2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/Chest.tscn" type="PackedScene" id=17]
+[ext_resource path="res://S.png" type="Texture" id=18]
+[ext_resource path="res://family.png" type="Texture" id=19]
+[ext_resource path="res://F.png" type="Texture" id=20]
+[ext_resource path="res://rooms/Room121.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/Door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://rooms/Room221.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Q.png" type="Texture" id=24]
+[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/Chair.tscn" type="PackedScene" id=26]
+[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=27]
+[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/Door_stair.tscn" type="PackedScene" id=29]
+[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=30]
+[ext_resource path="res://assets/Kitchen.tscn" type="PackedScene" id=31]
+[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Sequencer.gd" type="Script" id=33]
+[ext_resource path="res://sketchSequence/IMG_001.PNG" type="Texture" id=34]
+[ext_resource path="res://sketchSequence/IMG_002.PNG" type="Texture" id=35]
+[ext_resource path="res://sketchSequence/IMG_009.PNG" type="Texture" id=36]
+[ext_resource path="res://sketchSequence/IMG_010.PNG" type="Texture" id=37]
+[ext_resource path="res://sketchSequence/IMG_017.PNG" type="Texture" id=38]
+[ext_resource path="res://sketchSequence/IMG_021.PNG" type="Texture" id=39]
+[ext_resource path="res://sketchSequence/IMG_028.PNG" type="Texture" id=40]
+
+[sub_resource type="BoxShape" id=2]
+
 
 [sub_resource type="PlaneShape" id=1]
 
@@ -42,109 +57,144 @@ script = ExtResource( 2 )
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.464, 0, 0.023 )
 SPEED = 0.004
 
-[node name="Room020" parent="House" instance=ExtResource( 4 )]
+[node name="dad" type="Sprite3D" parent="House"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.0657655, 0.114092, 0 )
+visible = false
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="House/dad"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.0170293, 0 )
+light_color = Color( 0.643137, 0.0431373, 0.0431373, 1 )
+light_energy = 0.3
+light_specular = 0.0
+omni_range = 0.2
+
+[node name="Room020" parent="House" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.45 )
 matrixPos = Vector3( 0, 2, 0 )
 
-[node name="Room120" parent="House" instance=ExtResource( 5 )]
+[node name="Room120" parent="House" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.45 )
 matrixPos = Vector3( 1, 2, 0 )
 
-[node name="Room220" parent="House" instance=ExtResource( 6 )]
+[node name="Room220" parent="House" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.45 )
 matrixPos = Vector3( 2, 2, 0 )
 
-[node name="Bed" parent="House/Room220" instance=ExtResource( 7 )]
+[node name="Bed" parent="House/Room220" instance=ExtResource( 9 )]
 transform = Transform( -0.25, 0, 3.43944e-008, 0, 0.5, 0, -2.18557e-008, 0, -0.393426, 0.0982745, 0, -0.125063 )
 
-[node name="Table2" parent="House/Room220" instance=ExtResource( 8 )]
+[node name="Table2" parent="House/Room220" instance=ExtResource( 10 )]
 transform = Transform( 0.257423, 0, 0, 0, 0.273728, 0, 0, 0, 0.166595, 0.136577, 0, 0.165256 )
 
-[node name="Room021" parent="House" instance=ExtResource( 9 )]
+[node name="Key" type="Spatial" parent="House/Room220" groups=[
+"key",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.161576, 0.0433638, 0.176147 )
+script = ExtResource( 11 )
+
+[node name="Sprite3D" type="Sprite3D" parent="House/Room220/Key"]
+transform = Transform( 0.0663496, 0.074818, 0, -0.074818, 0.0663496, 0, 0, 0, 0.1, -0.0236691, 0.0233453, 0 )
+texture = ExtResource( 12 )
+
+[node name="Area" type="Area" parent="House/Room220/Key"]
+
+[node name="CollisionShape" type="CollisionShape" parent="House/Room220/Key/Area"]
+transform = Transform( 0.116725, 0, 0, 0, 0.18667, 0, 0, 0, 0.18667, 0.00414371, 0, -0.149858 )
+shape = SubResource( 2 )
+
+[node name="Room021" parent="House" instance=ExtResource( 13 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0 )
 matrixPos = Vector3( 0, 2, 1 )
 active = true
 
-[node name="Wall_shelf3" parent="House/Room021" instance=ExtResource( 10 )]
+[node name="Wall_shelf3" parent="House/Room021" instance=ExtResource( 14 )]
 transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, -0.126513, 0.0452084, 0.15522 )
 
-[node name="Wall_shelf2" parent="House/Room021" instance=ExtResource( 10 )]
+[node name="Wall_shelf2" parent="House/Room021" instance=ExtResource( 14 )]
 transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, -0.311111, -0.00417994, 0.15522 )
 
-[node name="Wall_shelf" parent="House/Room021" instance=ExtResource( 10 )]
+[node name="Wall_shelf" parent="House/Room021" instance=ExtResource( 14 )]
 transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, -0.126513, -0.0629994, 0.15522 )
 
-[node name="Bed" parent="House/Room021" instance=ExtResource( 7 )]
+[node name="Bed" parent="House/Room021" instance=ExtResource( 9 )]
 transform = Transform( 0.25, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.00768405, 0, -0.144914 )
 
-[node name="Airwent" parent="House/Room021" instance=ExtResource( 11 )]
+[node name="Airwent" parent="House/Room021" instance=ExtResource( 15 )]
 transform = Transform( 1.05694, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, -0.0140906, 0, -0.448724 )
 
-[node name="Light2" parent="House/Room021" instance=ExtResource( 12 )]
+[node name="Light2" parent="House/Room021" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269191, 0, -0.060794 )
 
-[node name="Chest" parent="House/Room021" instance=ExtResource( 13 )]
+[node name="Chest" parent="House/Room021" instance=ExtResource( 17 )]
 transform = Transform( 0.650381, 0, 0, 0, 0.5, 0, 0, 0, 0.649542, -0.061402, 0.0026655, 0.0668042 )
 
 [node name="Sprite3D" type="Sprite3D" parent="House/Room021"]
 transform = Transform( -4.37114e-009, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-009, -0.239063, 0.0883507, 0.091726 )
-texture = ExtResource( 14 )
+texture = ExtResource( 18 )
 
 [node name="Sprite3D2" type="Sprite3D" parent="House/Room021"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.170381, 0.137924, -0.221388 )
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 
 [node name="Sprite3D3" type="Sprite3D" parent="House/Room021"]
 transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.210433, 0.0709858, -0.0629638 )
-texture = ExtResource( 16 )
+texture = ExtResource( 20 )
 
-[node name="Room121" parent="House" instance=ExtResource( 17 )]
+[node name="Room121" parent="House" instance=ExtResource( 21 )]
 matrixPos = Vector3( 1, 2, 1 )
 
 [node name="Door" parent="House/Room121" groups=[
 "doors_interact",
-] instance=ExtResource( 18 )]
+] instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.0158122 )
 
 [node name="Door2" parent="House/Room121" groups=[
 "doors_interact",
-] instance=ExtResource( 18 )]
+] instance=ExtResource( 22 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0.0266218, 0.00513497, -0.24292 )
 
-[node name="Room221" parent="House" instance=ExtResource( 19 )]
+[node name="Room221" parent="House" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0 )
 matrixPos = Vector3( 2, 2, 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="House/Room221"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.155981, 0.0832421, -0.221705 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
-[node name="Room022" parent="House" instance=ExtResource( 21 )]
+[node name="Room022" parent="House" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
 matrixPos = Vector3( 0, 2, 2 )
 
-[node name="Table" parent="House/Room022" instance=ExtResource( 8 )]
+[node name="Table" parent="House/Room022" instance=ExtResource( 10 )]
 transform = Transform( 0.404086, 0, 0, 0, 0.509621, 0, 0, 0, 0.407663, -0.00921896, 0, 0.0452151 )
 
-[node name="Chair" parent="House/Room022" instance=ExtResource( 22 )]
+[node name="Table2" parent="House/Room022" instance=ExtResource( 10 )]
+transform = Transform( 0.233855, 0, 0, 0, 0.369074, 0, 0, 0, 0.159012, -0.18222, 0, -0.506024 )
+
+[node name="Chair" parent="House/Room022" instance=ExtResource( 26 )]
 transform = Transform( -7.64949e-008, 0, 1.75, 0, 1.73957, 0, -1.75, 0, -7.64949e-008, -0.108888, 0.0194757, 0.0645703 )
 
-[node name="Room122" parent="House" instance=ExtResource( 23 )]
+[node name="Room122" parent="House" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45 )
 matrixPos = Vector3( 1, 2, 2 )
 
-[node name="Door" parent="House/Room122" instance=ExtResource( 18 )]
+[node name="Door" parent="House/Room122" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.021749 )
 
-[node name="Room222" parent="House" instance=ExtResource( 24 )]
+[node name="Room222" parent="House" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.45 )
 matrixPos = Vector3( 2, 2, 2 )
 
-[node name="Door_stair" parent="House/Room222" instance=ExtResource( 25 )]
+[node name="Door_stair" parent="House/Room222" groups=[
+"door_locked",
+] instance=ExtResource( 29 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.000922978, 0, 0.287056 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="House"]
-stream = ExtResource( 26 )
+stream = ExtResource( 30 )
 bus = "Dampened"
 
 [node name="Floor" type="StaticBody" parent="House"]
@@ -156,16 +206,102 @@ shape = SubResource( 1 )
 
 [node name="Music" type="Spatial" parent="House"]
 
-[node name="Kitchen" parent="House" instance=ExtResource( 27 )]
+[node name="Kitchen" parent="House" instance=ExtResource( 31 )]
 visible = false
 
-[node name="Airwent" parent="House" instance=ExtResource( 11 )]
+[node name="Airwent" parent="House" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463072, 0, -0.448724 )
 
 [node name="AmbienteMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
+stream = ExtResource( 32 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 26 )
+stream = ExtResource( 30 )
 bus = "Dampened"
 
+[node name="Sequencer" type="CanvasLayer" parent="."]
+script = ExtResource( 33 )
+
+[node name="Control" type="Control" parent="Sequencer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Sequencer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+
+[node name="Seq_1" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -66.6672
+margin_top = -536.318
+margin_right = 1981.33
+margin_bottom = 999.682
+rect_scale = Vector2( 0.4, 0.4 )
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = ExtResource( 34 )
+stretch_mode = 3
+
+[node name="Seq_2" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 1038.34
+margin_top = 388.524
+margin_right = 3086.34
+margin_bottom = 1924.52
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 35 )
+
+[node name="Seq_3" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 140.868
+margin_top = -79.5223
+margin_right = 2188.87
+margin_bottom = 1456.48
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 36 )
+
+[node name="Seq_5" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 140.868
+margin_top = -79.5223
+margin_right = 2188.87
+margin_bottom = 1456.48
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 37 )
+
+[node name="Seq_6" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 140.868
+margin_top = -79.5223
+margin_right = 2188.87
+margin_bottom = 1456.48
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 38 )
+
+[node name="Seq_7" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 176.957
+margin_top = -70.434
+margin_right = 2224.96
+margin_bottom = 1465.57
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 39 )
+
+[node name="Seq_8" type="TextureRect" parent="Sequencer/Control"]
+visible = false
+margin_left = 772.503
+margin_top = -40.8971
+margin_right = 2820.5
+margin_bottom = 1495.1
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 40 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sequencer"]
+
+[node name="Timer" type="Timer" parent="Sequencer"]
+
+[connection signal="sequence_done" from="Sequencer" to="." method="_on_Sequencer_sequence_done"]
