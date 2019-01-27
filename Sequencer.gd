@@ -28,7 +28,7 @@ func proceed():
 		$Timer.start()
 		yield($Timer, "timeout")
 		$Control/Seq_2.show()
-		hide_after_t(3)
+		hide_after_t(5)
 
 	if step == 2:
 		show()
@@ -67,8 +67,11 @@ func proceed():
 		hide_after_t(3)
 	if step == 6:
 		$Control/Seq_7.hide()
-		$Control/Seq_8.show()
-		hide_after_t(3)
+		get_parent().stop_music()
+		$VideoPlayer.show()
+		$VideoPlayer.play()
+#		$Control/Seq_8.show()
+		hide_after_t(22)
 		
 func hide_after_t(time):
 	$Timer.wait_time = time

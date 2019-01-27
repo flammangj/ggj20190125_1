@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://kid1.png" type="Texture" id=2]
 [ext_resource path="res://sound/sfx_footstep_child.ogg" type="AudioStream" id=3]
 [ext_resource path="res://sound/sfx_doorclosed.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sound/sfx_doorunlocked.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sound/sfx_cameraturn.ogg" type="AudioStream" id=6]
+[ext_resource path="res://kid_f1.png" type="Texture" id=7]
+[ext_resource path="res://kid_f2.png" type="Texture" id=8]
+[ext_resource path="res://kidduck_f1.png" type="Texture" id=9]
+[ext_resource path="res://kidduck_f2.png" type="Texture" id=10]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -22,17 +27,32 @@ fog_sun_amount = 0.32
 [sub_resource type="BoxShape" id=3]
 
 
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+} ]
+
 [node name="Player" type="KinematicBody" groups=[
 "player",
 ]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.176897, 0, 0, 0, 0.234479, 0, 0, 0, 0.0163786, 0, 0.0848171, 0 )
+transform = Transform( 0.176897, 0, 0, 0, 0.155321, 0, 0, 0, 0.0163786, 0, 0.0454523, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.075237, 0 )
+visible = false
 texture = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -76,6 +96,13 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="door_open" type="AudioStreamPlayer" parent="."]
+
+[node name="woosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.000958061, 0.0744275, 0.000508629 )
+frames = SubResource( 4 )
 
 [connection signal="finished" from="Footsteps" to="." method="_on_Footsteps_finished"]
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]

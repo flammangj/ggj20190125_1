@@ -12,7 +12,10 @@ func _ready():
 
 func proceed():
 	$Sequencer.proceed()
-	
+
+func stop_music():
+	$AmbienteMusic.stop()
+
 func _input(event):
 	if event.is_action_pressed("perspective_left") and game_running:
 		turn_scene(true)

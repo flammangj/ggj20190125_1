@@ -53,13 +53,19 @@ func _physics_process(delta):
 		if not scaled_down:
 			scaled_down = true
 			scaled_up = false
-			global_scale(Vector3(1,0.5,1))
+			$CollisionShape.global_scale(Vector3(1,0.1,1))
+#			$CollisionShape.shape.extents= (Vector3(0.2,0.01,1))
+#			$AnimatedSprite3D.global_scale(Vector3(1, 2, 1))
+
 			
 	else:
 		if not scaled_up:
 			scaled_up = true
 			scaled_down = false
-			global_scale(Vector3(1, 2, 1))
+			$CollisionShape.global_scale(Vector3(1, 10, 1))
+#			$CollisionShape.shape.extents= (Vector3(0.2,0.3,1))
+#			$AnimatedSprite3D.global_scale(Vector3(1, 0.5, 1))
+
 			
 	
 
@@ -103,15 +109,25 @@ func play_footsteps():
 		foot_sfx_playing = true
 		
 func setAnimationDirection(velocity):
-	if ducked:
-		$Sprite3D.texture = load("res://kid2.png")
-	else:
-		$Sprite3D.texture = load("res://kid1.png")
+#	if ducked:
+#		$Sprite3D.texture = load("res://kid2.png")
+#	else:
+#		$AnimatedSprite3D = load("res://kid1.png")
 
 	if velocity.x == 0 && velocity.z == 0:
 		pass
 	else:
 		$Sprite3D.flip_h = velocity.x > 0
+		
+	if velocity.x != 0 or velocity.z != 0:
+		if ducked:
+			$AnimatedSprite3D.play("duck")
+		else:
+			$AnimatedSprite3D.play("default")
+			
+	else:
+		$AnimatedSprite3D.play("default")
+		$AnimatedSprite3D.stop()
 	
 func set_rotation_target():
 	if perspective:
@@ -130,6 +146,7 @@ func switch_perspective(direction: bool):
 	if perspective == direction:
 		return
 	#put character to room center
+	$woosh.play()
 	if current_room:
 		global_transform = (current_room.global_transform)
 #		translate(Vector3(0,0.1,0))

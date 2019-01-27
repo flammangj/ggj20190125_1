@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://House.gd" type="Script" id=2]
@@ -44,14 +44,15 @@
 [ext_resource path="res://sound/sfx_WATTHEFUKRUDOIN.ogg" type="AudioStream" id=42]
 [ext_resource path="res://sound/sfx_BAKTOURROOM.ogg" type="AudioStream" id=43]
 [ext_resource path="res://sound/sfx_doorclosed.ogg" type="AudioStream" id=44]
+[ext_resource path="res://end.webm" type="VideoStream" id=45]
+
+[sub_resource type="BoxShape" id=1]
+
 
 [sub_resource type="BoxShape" id=2]
 
 
-[sub_resource type="BoxShape" id=3]
-
-
-[sub_resource type="PlaneShape" id=1]
+[sub_resource type="PlaneShape" id=3]
 
 
 [node name="Main" type="Spatial"]
@@ -110,7 +111,7 @@ texture = ExtResource( 12 )
 
 [node name="CollisionShape" type="CollisionShape" parent="House/Room220/Key/Area"]
 transform = Transform( 0.116725, 0, 0, 0, 0.18667, 0, 0, 0, 0.18667, 0.00414371, 0, -0.149858 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Room021" parent="House" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0 )
@@ -158,14 +159,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176128, -0.0566832 )
 
 [node name="CollisionShape" type="CollisionShape" parent="House/Room021/bed_block"]
 transform = Transform( 0.121854, 0, 0, 0, 0.1, 0, 0, 0, 0.0766336, 0, 0, -0.102952 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="start_tunnel_block" type="StaticBody" parent="House/Room021"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0949467, -0.0566832 )
 
 [node name="CollisionShape" type="CollisionShape" parent="House/Room021/start_tunnel_block"]
 transform = Transform( 0.121854, 0, 0, 0, 0.1, 0, 0, 0, 0.0766336, 0, 0, -0.102952 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Puppethouse" type="Spatial" parent="House/Room021"]
 transform = Transform( 0.988324, 0, -0.152364, 0, 1, 0, 0.152364, 0, 0.988324, -0.198192, 0.0417862, -0.0644661 )
@@ -181,8 +182,8 @@ matrixPos = Vector3( 1, 2, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.0158122 )
 
 [node name="Door2" parent="House/Room121" groups=[
-"doors_interact",
 "door_locked",
+"doors_interact",
 ] instance=ExtResource( 23 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0.0266218, 0.00513497, -0.24292 )
 
@@ -229,7 +230,7 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="House/Floor"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Music" type="Spatial" parent="House"]
 
@@ -337,5 +338,11 @@ stream = ExtResource( 44 )
 volume_db = 7.068
 
 [node name="Timer" type="Timer" parent="Sequencer"]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Sequencer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 45 )
 
 [connection signal="sequence_done" from="Sequencer" to="." method="_on_Sequencer_sequence_done"]
