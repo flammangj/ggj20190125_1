@@ -27,7 +27,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	velocity = process_user_movement()*SPEED
+	velocity = process_user_movement()*SPEED*delta
 #	velocity = move_and_slide_with_snap(velocity, Vector3(0, -1, 0), Vector3(0, 1, 0))
 	velocity = move_and_collide(velocity)
 
@@ -176,7 +176,7 @@ func open_door():
 		if object.get_parent().is_in_group("doors_interact"):
 			if obj.is_in_group("door_locked"):
 				print("door locked")
-				if has_key:
+				if has_key and not obj.is_in_group("door_locked_forever"):
 					print("we also have key")
 					$door_unlocked.play()
 					$door_open.play()

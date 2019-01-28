@@ -96,6 +96,7 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="door_open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [node name="woosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

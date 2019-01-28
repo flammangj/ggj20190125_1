@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://House.gd" type="Script" id=2]
@@ -25,26 +25,27 @@
 [ext_resource path="res://assets/Door.tscn" type="PackedScene" id=23]
 [ext_resource path="res://rooms/Room221.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Q.png" type="Texture" id=25]
-[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/Chair.tscn" type="PackedScene" id=27]
-[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=28]
-[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=29]
-[ext_resource path="res://assets/Door_stair.tscn" type="PackedScene" id=30]
-[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=31]
-[ext_resource path="res://assets/Kitchen.tscn" type="PackedScene" id=32]
-[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=33]
-[ext_resource path="res://Sequencer.gd" type="Script" id=34]
-[ext_resource path="res://sketchSequence/IMG_001.PNG" type="Texture" id=35]
-[ext_resource path="res://sketchSequence/IMG_002.PNG" type="Texture" id=36]
-[ext_resource path="res://sketchSequence/IMG_009.PNG" type="Texture" id=37]
-[ext_resource path="res://sketchSequence/IMG_010.PNG" type="Texture" id=38]
-[ext_resource path="res://sketchSequence/IMG_017.PNG" type="Texture" id=39]
-[ext_resource path="res://sketchSequence/IMG_021.PNG" type="Texture" id=40]
-[ext_resource path="res://sketchSequence/IMG_028.PNG" type="Texture" id=41]
-[ext_resource path="res://sound/sfx_WATTHEFUKRUDOIN.ogg" type="AudioStream" id=42]
-[ext_resource path="res://sound/sfx_BAKTOURROOM.ogg" type="AudioStream" id=43]
-[ext_resource path="res://sound/sfx_doorclosed.ogg" type="AudioStream" id=44]
-[ext_resource path="res://end.webm" type="VideoStream" id=45]
+[ext_resource path="res://E2.png" type="Texture" id=26]
+[ext_resource path="res://rooms/Room022.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/Chair.tscn" type="PackedScene" id=28]
+[ext_resource path="res://rooms/Room122.tscn" type="PackedScene" id=29]
+[ext_resource path="res://rooms/Room222.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/Door_stair.tscn" type="PackedScene" id=31]
+[ext_resource path="res://sound/sfx_dadkitchen.ogg" type="AudioStream" id=32]
+[ext_resource path="res://assets/Kitchen.tscn" type="PackedScene" id=33]
+[ext_resource path="res://sound/Music1.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Sequencer.gd" type="Script" id=35]
+[ext_resource path="res://sketchSequence/IMG_001.PNG" type="Texture" id=36]
+[ext_resource path="res://sketchSequence/IMG_002.PNG" type="Texture" id=37]
+[ext_resource path="res://sketchSequence/IMG_009.PNG" type="Texture" id=38]
+[ext_resource path="res://sketchSequence/IMG_010.PNG" type="Texture" id=39]
+[ext_resource path="res://sketchSequence/IMG_017.PNG" type="Texture" id=40]
+[ext_resource path="res://sketchSequence/IMG_021.PNG" type="Texture" id=41]
+[ext_resource path="res://sketchSequence/IMG_028.PNG" type="Texture" id=42]
+[ext_resource path="res://sound/sfx_WATTHEFUKRUDOIN.ogg" type="AudioStream" id=43]
+[ext_resource path="res://sound/sfx_BAKTOURROOM.ogg" type="AudioStream" id=44]
+[ext_resource path="res://sound/sfx_doorclosed.ogg" type="AudioStream" id=45]
+[ext_resource path="res://end.webm" type="VideoStream" id=46]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -63,7 +64,7 @@ script = ExtResource( 2 )
 
 [node name="Player" parent="House" instance=ExtResource( 3 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.464, 0, 0.023 )
-SPEED = 0.004
+SPEED = 0.2
 
 [node name="dad" type="Sprite3D" parent="House"]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.0657655, 0.114092, 0 )
@@ -92,7 +93,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.45 )
 matrixPos = Vector3( 2, 2, 0 )
 
 [node name="Bed" parent="House/Room220" instance=ExtResource( 9 )]
-transform = Transform( -0.25, 0, 3.43944e-008, 0, 0.5, 0, -2.18557e-008, 0, -0.393426, 0.0982745, 0, -0.125063 )
+transform = Transform( -0.25, 0, 3.43944e-08, 0, 0.5, 0, -2.18557e-08, 0, -0.393426, 0.0982745, 0, -0.125063 )
 
 [node name="Table2" parent="House/Room220" instance=ExtResource( 10 )]
 transform = Transform( 0.257423, 0, 0, 0, 0.273728, 0, 0, 0, 0.166595, 0.136577, 0, 0.165256 )
@@ -119,13 +120,13 @@ matrixPos = Vector3( 0, 2, 1 )
 active = true
 
 [node name="Wall_shelf3" parent="House/Room021" instance=ExtResource( 14 )]
-transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, -0.126513, 0.0452084, 0.15522 )
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.126513, 0.0452084, 0.15522 )
 
 [node name="Wall_shelf2" parent="House/Room021" instance=ExtResource( 14 )]
-transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, -0.311111, -0.00417994, 0.15522 )
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -0.311111, -0.00417994, 0.15522 )
 
 [node name="Wall_shelf" parent="House/Room021" instance=ExtResource( 14 )]
-transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, -0.126513, -0.0629994, 0.15522 )
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.126513, -0.0629994, 0.15522 )
 
 [node name="Bed" parent="House/Room021" instance=ExtResource( 9 )]
 transform = Transform( 0.25, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.00768405, 0, -0.144914 )
@@ -140,7 +141,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269191, 0, -0.060794 )
 transform = Transform( 0.650381, 0, 0, 0, 0.5, 0, 0, 0, 0.649542, -0.061402, 0.0026655, 0.0668042 )
 
 [node name="Sprite3D" type="Sprite3D" parent="House/Room021"]
-transform = Transform( -4.37114e-009, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-009, -0.239063, 0.0883507, 0.091726 )
+transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.239063, 0.0883507, 0.091726 )
 texture = ExtResource( 18 )
 
 [node name="Sprite3D2" type="Sprite3D" parent="House/Room021"]
@@ -185,7 +186,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.0158
 "door_locked",
 "doors_interact",
 ] instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0.0266218, 0.00513497, -0.24292 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0266218, 0.00513497, -0.24292 )
 
 [node name="Room221" parent="House" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0 )
@@ -195,34 +196,42 @@ matrixPos = Vector3( 2, 2, 1 )
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.155981, 0.0832421, -0.221705 )
 texture = ExtResource( 25 )
 
-[node name="Room022" parent="House" instance=ExtResource( 26 )]
+[node name="Sprite3D2" type="Sprite3D" parent="House/Room221"]
+transform = Transform( -0.0999607, -0.00200761, -0.00195879, -0.00190266, 0.0998447, -0.0052365, 0.00206087, -0.00519717, -0.0998436, 0.192808, 0.0693297, -0.223856 )
+texture = ExtResource( 26 )
+
+[node name="Room022" parent="House" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
 matrixPos = Vector3( 0, 2, 2 )
 
 [node name="Table" parent="House/Room022" instance=ExtResource( 10 )]
 transform = Transform( 0.404086, 0, 0, 0, 0.509621, 0, 0, 0, 0.407663, -0.00921896, 0, 0.0452151 )
 
-[node name="Chair" parent="House/Room022" instance=ExtResource( 27 )]
-transform = Transform( -7.64949e-008, 0, 1.75, 0, 1.73957, 0, -1.75, 0, -7.64949e-008, -0.108888, 0.0194757, 0.0645703 )
+[node name="Chair" parent="House/Room022" instance=ExtResource( 28 )]
+transform = Transform( -7.64949e-08, 0, 1.75, 0, 1.73957, 0, -1.75, 0, -7.64949e-08, -0.108888, 0.0194757, 0.0645703 )
 
-[node name="Room122" parent="House" instance=ExtResource( 28 )]
+[node name="Room122" parent="House" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45 )
 matrixPos = Vector3( 1, 2, 2 )
 
-[node name="Door" parent="House/Room122" instance=ExtResource( 23 )]
+[node name="Door" parent="House/Room122" groups=[
+"door_locked_forever",
+"door_locked",
+"doors_interact",
+] instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239933, 0.00513497, -0.021749 )
 
-[node name="Room222" parent="House" instance=ExtResource( 29 )]
+[node name="Room222" parent="House" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.45 )
 matrixPos = Vector3( 2, 2, 2 )
 
 [node name="Door_stair" parent="House/Room222" groups=[
 "door_locked",
-] instance=ExtResource( 30 )]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.000922978, 0, 0.287056 )
+] instance=ExtResource( 31 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000922978, 0, 0.287056 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="House"]
-stream = ExtResource( 31 )
+stream = ExtResource( 32 )
 bus = "Dampened"
 
 [node name="Floor" type="StaticBody" parent="House"]
@@ -234,21 +243,21 @@ shape = SubResource( 3 )
 
 [node name="Music" type="Spatial" parent="House"]
 
-[node name="Kitchen" parent="House" instance=ExtResource( 32 )]
+[node name="Kitchen" parent="House" instance=ExtResource( 33 )]
 visible = false
 
 [node name="Airwent" parent="House" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463072, 0, -0.448724 )
 
 [node name="AmbienteMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 33 )
+stream = ExtResource( 34 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 31 )
+stream = ExtResource( 32 )
 bus = "Dampened"
 
 [node name="Sequencer" type="CanvasLayer" parent="."]
-script = ExtResource( 34 )
+script = ExtResource( 35 )
 
 [node name="Control" type="Control" parent="Sequencer"]
 anchor_right = 1.0
@@ -270,7 +279,7 @@ margin_bottom = 999.682
 rect_scale = Vector2( 0.4, 0.4 )
 size_flags_horizontal = 12
 size_flags_vertical = 12
-texture = ExtResource( 35 )
+texture = ExtResource( 36 )
 stretch_mode = 3
 
 [node name="Seq_2" type="TextureRect" parent="Sequencer/Control"]
@@ -280,7 +289,7 @@ margin_top = 388.524
 margin_right = 3086.34
 margin_bottom = 1924.52
 rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 36 )
+texture = ExtResource( 37 )
 
 [node name="Seq_3" type="TextureRect" parent="Sequencer/Control"]
 visible = false
@@ -289,7 +298,7 @@ margin_top = -79.5223
 margin_right = 2188.87
 margin_bottom = 1456.48
 rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 37 )
+texture = ExtResource( 38 )
 
 [node name="Seq_5" type="TextureRect" parent="Sequencer/Control"]
 visible = false
@@ -298,7 +307,7 @@ margin_top = -79.5223
 margin_right = 2188.87
 margin_bottom = 1456.48
 rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 
 [node name="Seq_6" type="TextureRect" parent="Sequencer/Control"]
 visible = false
@@ -307,7 +316,7 @@ margin_top = -79.5223
 margin_right = 2188.87
 margin_bottom = 1456.48
 rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 
 [node name="Seq_7" type="TextureRect" parent="Sequencer/Control"]
 visible = false
@@ -316,7 +325,7 @@ margin_top = -70.434
 margin_right = 2224.96
 margin_bottom = 1465.57
 rect_scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 40 )
+texture = ExtResource( 41 )
 
 [node name="Seq_8" type="TextureRect" parent="Sequencer/Control"]
 visible = false
@@ -325,16 +334,16 @@ margin_top = -40.8971
 margin_right = 2820.5
 margin_bottom = 1495.1
 rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 41 )
+texture = ExtResource( 42 )
 
 [node name="whatThe" type="AudioStreamPlayer" parent="Sequencer"]
-stream = ExtResource( 42 )
-
-[node name="backToRoom" type="AudioStreamPlayer" parent="Sequencer"]
 stream = ExtResource( 43 )
 
-[node name="doorclose" type="AudioStreamPlayer" parent="Sequencer"]
+[node name="backToRoom" type="AudioStreamPlayer" parent="Sequencer"]
 stream = ExtResource( 44 )
+
+[node name="doorclose" type="AudioStreamPlayer" parent="Sequencer"]
+stream = ExtResource( 45 )
 volume_db = 7.068
 
 [node name="Timer" type="Timer" parent="Sequencer"]
@@ -343,6 +352,6 @@ volume_db = 7.068
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-stream = ExtResource( 45 )
+stream = ExtResource( 46 )
 
 [connection signal="sequence_done" from="Sequencer" to="." method="_on_Sequencer_sequence_done"]
